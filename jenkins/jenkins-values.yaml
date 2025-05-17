@@ -1,0 +1,48 @@
+controller:
+  admin:
+    username: admin
+    password: admin123
+
+  installPlugins:
+    - kubernetes:latest
+    - workflow-aggregator:latest
+    - git:latest
+    - configuration-as-code:latest
+    - blueocean:latest
+    - logstash:2.5.0218.v0a_ff8fefc12b_
+
+  # ingress:
+  #   enabled: true
+  #   annotations:
+  #     nginx.ingress.kubernetes.io/rewrite-target: /
+  #   hostName: jenkins.local
+  #   paths:
+  #     - path: /
+  #       pathType: Prefix
+
+  serviceType: ClusterIP
+
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "512Mi"
+    limits:
+      cpu: "1000m"
+      memory: "1024Mi"
+
+
+  persistence:
+    enabled: true
+    existingClaim: ""
+    size: 8Gi
+    storageClass: ""
+
+agent:
+  enabled: true
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"

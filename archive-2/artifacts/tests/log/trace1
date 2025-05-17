@@ -1,0 +1,133 @@
+14:25:13.062251 [0-x] == Info: [0-x] [MULTI] [INIT] added to multi, mid=1, running=1, total=2
+14:25:13.062423 [0-x] == Info: [0-x] [MULTI] [INIT] -> [SETUP]
+14:25:13.062425 [0-x] == Info: [0-x] [MULTI] [SETUP] -> [CONNECT]
+14:25:13.062435 [0-x] == Info: [0-x] [READ] client_reset, clear readers
+14:25:13.062481 [0-0] == Info: [0-0] [MULTI] [CONNECT] [CPOOL] added connection 0. The cache now contains 1 members
+14:25:13.062522 [0-0] == Info: [0-0] [SETUP] added
+14:25:13.062536 [0-0] == Info: [0-0] [MULTI] [CONNECT] -> [CONNECTING]
+14:25:13.063011 [0-0] == Info: [0-0] [HAPPY-EYEBALLS] created ipv4 (timeout 300000ms)
+14:25:13.063016 [0-0] == Info: [0-0] [HAPPY-EYEBALLS] ipv4 starting (timeout=300000ms)
+14:25:13.063053 [0-0] == Info: [0-0]   Trying 127.0.0.1:39963...
+14:25:13.063069 [0-0] == Info: [0-0] [TCP] cf_socket_open() -> 0, fd=5
+14:25:13.063200 [0-0] == Info: [0-0] [TCP] local address 127.0.0.1 port 46834...
+14:25:13.063202 [0-0] == Info: [0-0] [HAPPY-EYEBALLS] ipv4 connect -> 0, connected=0
+14:25:13.063203 [0-0] == Info: [0-0] [SETUP] Curl_conn_connect(block=0) -> 0, done=0
+14:25:13.063211 [0-0] == Info: [0-0] [TCP] adjust_pollset, !connected, POLLOUT fd=5
+14:25:13.063213 [0-0] == Info: [0-0] [HAPPY-EYEBALLS] adjust_pollset -> 1 socks
+14:25:13.063216 [0-0] == Info: [0-0] [MULTI] [CONNECTING] multi_wait pollset[fd=5 OUT], timeouts=0
+14:25:13.063225 [0-0] == Info: [0-0] [TCP] connected
+14:25:13.063226 [0-0] == Info: [0-0] [HAPPY-EYEBALLS] ipv4 connect -> 0, connected=1
+14:25:13.063228 [0-0] == Info: [0-0] [HAPPY-EYEBALLS] Connected to 127.0.0.1 (127.0.0.1) port 39963
+14:25:13.063229 [0-0] == Info: [0-0] [SETUP] Curl_conn_connect(block=0) -> 0, done=1
+14:25:13.063233 [0-0] == Info: [0-0] Connected to 127.0.0.1 (127.0.0.1) port 39963
+14:25:13.063234 [0-0] == Info: [0-0] using HTTP/1.x
+14:25:13.063235 [0-0] == Info: [0-0] [MULTI] [CONNECTING] -> [PROTOCONNECT]
+14:25:13.063237 [0-0] == Info: [0-0] [MULTI] [PROTOCONNECT] -> [DO]
+14:25:13.063282 [0-0] == Info: [0-0] [TCP] send(len=84) -> 84, err=0
+14:25:13.063284 [0-0] => Send header, 90 bytes (0x5a)
+0000: [0-0] GET /1 HTTP/1.1
+0017: Host: 127.0.0.1:39963
+002e: User-Agent: curl/8.14.0-DEV
+004b: Accept: */*
+0058: 
+14:25:13.063306 [0-0] == Info: [0-0] [MULTI] [DO] -> [DID]
+14:25:13.063308 [0-0] == Info: [0-0] [MULTI] [DID] -> [PERFORMING]
+14:25:13.063320 [0-0] == Info: [0-0] [TCP] recv(len=102400) -> -1, err=81
+14:25:13.063325 [0-0] == Info: [0-0] Request completely sent off
+14:25:13.063330 [0-0] == Info: [0-0] [MULTI] [PERFORMING] multi_wait pollset[fd=5 IN], timeouts=0
+14:25:13.063659 [0-0] == Info: [0-0] [TCP] recv(len=102400) -> 100, err=0
+14:25:13.063667 [0-0] <= Recv header, 23 bytes (0x17)
+0000: [0-0] HTTP/1.1 200 OK
+14:25:13.063729 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 17 header bytes -> 17
+14:25:13.063732 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 17/17 bytes of type c -> 0
+14:25:13.063734 [0-0] == Info: [0-0] [WRITE] download_write header(type=c, blen=17) -> 0
+14:25:13.063762 [0-0] == Info: [0-0] [WRITE] client_write(type=c, len=17) -> 0
+14:25:13.063764 [0-0] <= Recv header, 43 bytes (0x2b)
+0000: [0-0] Date: Tue, 09 Nov 2010 14:49:00 GMT
+14:25:13.063773 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=37) -> 0
+14:25:13.063775 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 37 header bytes -> 37
+14:25:13.063776 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 37/37 bytes of type 4 -> 0
+14:25:13.063778 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=37) -> 0
+14:25:13.063779 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=37) -> 0
+14:25:13.063780 [0-0] <= Recv header, 32 bytes (0x20)
+0000: [0-0] Server: test-server/fake
+14:25:13.063785 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=26) -> 0
+14:25:13.063786 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 26 header bytes -> 26
+14:25:13.063788 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 26/26 bytes of type 4 -> 0
+14:25:13.063789 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=26) -> 0
+14:25:13.063790 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=26) -> 0
+14:25:13.063793 [0-0] == Info: [0-0] [WRITE] xfer_write_resp(len=100, eos=0) -> 0
+14:25:13.063797 [0-0] == Info: [0-0] [TCP] recv(len=102400) -> 167, err=0
+14:25:13.063799 [0-0] <= Recv header, 52 bytes (0x34)
+0000: [0-0] Last-Modified: Tue, 13 Jun 2000 12:10:00 GMT
+14:25:13.063812 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=46) -> 0
+14:25:13.063813 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 46 header bytes -> 46
+14:25:13.063815 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 46/46 bytes of type 4 -> 0
+14:25:13.063816 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=46) -> 0
+14:25:13.063817 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=46) -> 0
+14:25:13.063818 [0-0] <= Recv header, 34 bytes (0x22)
+0000: [0-0] ETag: "21025-dc7-39462498"
+14:25:13.063823 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=28) -> 0
+14:25:13.063824 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 28 header bytes -> 28
+14:25:13.063826 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 28/28 bytes of type 4 -> 0
+14:25:13.063827 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=28) -> 0
+14:25:13.063828 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=28) -> 0
+14:25:13.063829 [0-0] <= Recv header, 28 bytes (0x1c)
+0000: [0-0] Accept-Ranges: bytes
+14:25:13.063833 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=22) -> 0
+14:25:13.063835 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 22 header bytes -> 22
+14:25:13.063836 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 22/22 bytes of type 4 -> 0
+14:25:13.063838 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=22) -> 0
+14:25:13.063839 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=22) -> 0
+14:25:13.063841 [0-0] <= Recv header, 25 bytes (0x19)
+0000: [0-0] Content-Length: 6
+14:25:13.063845 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=19) -> 0
+14:25:13.063846 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 19 header bytes -> 19
+14:25:13.063847 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 19/19 bytes of type 4 -> 0
+14:25:13.063849 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=19) -> 0
+14:25:13.063850 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=19) -> 0
+14:25:13.063853 [0-0] <= Recv header, 25 bytes (0x19)
+0000: [0-0] Connection: close
+14:25:13.063857 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=19) -> 0
+14:25:13.063858 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 19 header bytes -> 19
+14:25:13.063859 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 19/19 bytes of type 4 -> 0
+14:25:13.063861 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=19) -> 0
+14:25:13.063862 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=19) -> 0
+14:25:13.063864 [0-0] <= Recv header, 31 bytes (0x1f)
+0000: [0-0] Content-Type: text/html
+14:25:13.063868 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=25) -> 0
+14:25:13.063870 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 25 header bytes -> 25
+14:25:13.063871 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 25/25 bytes of type 4 -> 0
+14:25:13.063872 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=25) -> 0
+14:25:13.063874 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=25) -> 0
+14:25:13.063875 [0-0] <= Recv header, 26 bytes (0x1a)
+0000: [0-0] Funny-head: yesyes
+14:25:13.063879 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=20) -> 0
+14:25:13.063880 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 20 header bytes -> 20
+14:25:13.063882 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 20/20 bytes of type 4 -> 0
+14:25:13.063883 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=20) -> 0
+14:25:13.063884 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=20) -> 0
+14:25:13.063886 [0-0] <= Recv header, 8 bytes (0x8)
+0000: [0-0] 
+14:25:13.063889 [0-0] == Info: [0-0] [WRITE] header_collect pushed(type=1, len=2) -> 0
+14:25:13.063891 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 2 header bytes -> 2
+14:25:13.063892 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 2/2 bytes of type 4 -> 0
+14:25:13.063893 [0-0] == Info: [0-0] [WRITE] download_write header(type=4, blen=2) -> 0
+14:25:13.063894 [0-0] == Info: [0-0] [WRITE] client_write(type=4, len=2) -> 0
+14:25:13.063896 [0-0] <= Recv data, 12 bytes (0xc)
+0000: [0-0] -foo-.
+14:25:13.063902 [0-0] == Info: [0-0] [WRITE] [OUT] wrote 6 body bytes -> 6
+14:25:13.063904 [0-0] == Info: [0-0] [WRITE] [PAUSE] writing 6/6 bytes of type 1 -> 0
+14:25:13.063905 [0-0] == Info: [0-0] [WRITE] download_write body(type=1, blen=6) -> 0
+14:25:13.063907 [0-0] == Info: [0-0] [WRITE] client_write(type=1, len=6) -> 0
+14:25:13.063908 [0-0] == Info: [0-0] [WRITE] xfer_write_resp(len=167, eos=0) -> 0
+14:25:13.063913 [0-0] == Info: [0-0] [MULTI] [PERFORMING] -> [DONE]
+14:25:13.063916 [0-0] == Info: [0-0] [MULTI] [DONE] multi_done: status: 0 prem: 0 done: 0
+14:25:13.064045 [0-0] == Info: [0-0] [WRITE] [OUT] done
+14:25:13.064047 [0-0] == Info: [0-0] [READ] client_reset, clear readers
+14:25:13.064050 [0-x] == Info: [0-x] [MULTI] [DONE] multi_done_locked, in use=0
+14:25:13.064053 [0-0] == Info: [0-0] [MULTI] [DONE] multi_done, not reusing connection=0, forbid=0, close=1, premature=0, conn_multiplex=0
+14:25:13.064057 [0-0] == Info: [0-0] shutting down connection #0
+14:25:13.064096 [0-0] == Info: [0-0] [MULTI] [DONE] -> [COMPLETED]
+14:25:13.064098 [0-0] == Info: [0-0] [MULTI] [COMPLETED] -> [MSGSENT]
+14:25:13.064102 [0-0] == Info: [0-0] [MULTI] [COMPLETED] removed from multi, mid=1, running=0, total=1

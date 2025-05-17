@@ -1,0 +1,1 @@
+../src/curl -q --output log/curl1.out  --include --trace-ascii log/trace1 --trace-config all --trace-time http://127.0.0.1:39963/1 > log/stdout1 2> log/stderr1

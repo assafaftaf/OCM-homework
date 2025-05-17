@@ -1,0 +1,21 @@
+14:25:12.428349 Running HTTP IPv4 version on port 39963
+14:25:12.428436 Wrote pid 44095 to log/server/http_server.pid
+14:25:12.428457 Wrote port 39963 to log/server/http_server.port
+14:25:13.456586 ====> Client connect
+14:25:13.456644 accept_connection 3 returned 4
+14:25:13.456668 accept_connection 3 returned 0
+14:25:13.456685 Read 84 bytes
+14:25:13.456704 Process 84 bytes request
+14:25:13.456722 Got request: GET /1 HTTP/1.1
+14:25:13.456731 Serve test number 1 part 0
+14:25:13.456761 - request found to be complete (1)
+14:25:13.456796 Wrote request (84 bytes) input to log/server.input
+14:25:13.456826 Send response test1 section <data>
+14:25:13.456960 Response sent (267 bytes) and written to log/server.response
+14:25:13.456989 => persistent connection request ended, awaits new request
+
+14:25:13.457381 Connection closed by client
+14:25:13.457404 ====> Client disconnect 0
+exit_signal_handler: called
+14:25:13.461065 signalled to die
+14:25:13.461135 ========> IPv4 sws (port 39963 pid: 44095) exits with signal (15)

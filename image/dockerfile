@@ -1,0 +1,22 @@
+FROM debian:bullseye
+#curl builder image
+
+RUN apt-get update && apt-get install -y \
+build-essential \
+autoconf \
+automake \
+libtool \
+pkg-config \
+libssl-dev \
+libpsl-dev \
+ca-certificates \
+git \
+curl \
+libidn2-dev \
+net-tools \
+netcat \
+netcat-openbsd
+
+RUN useradd -m -d /home/jenkins -s /bin/bash jenkins
+USER jenkins
+WORKDIR /home/jenkins
