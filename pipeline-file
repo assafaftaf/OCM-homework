@@ -1,0 +1,80 @@
+pipeline {
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: curl-builder
+    image: assaf888/curl_builder:v1
+    command:
+    - cat
+    tty: true
+"""
+            defaultContainer 'curl-builder'
+        }
+    }
+
+    environment {
+        CURL_REPO = 'https://github.com/curl/curl.git'
+        CURL_DIR = 'curl'
+        ARTIFACTS_DIR = 'artifacts'
+    }
+
+    stages {
+        stage('Clone CURL Repository') {
+            steps {
+                git url: env.CURL_REPO
+            }
+        }
+
+        stage('Build CURL') {
+            steps {
+                sh '''
+                    ./buildconf
+                    ./configure --enable-http --enable-ftp --enable-file --enable-tftp --without-ssl --without-libpsl
+                    make clean && make -j$(nproc)
+                    
+                    mkdir -p artifacts/.libs
+                    cp src/.libs/libcurl* artifacts/.libs/ || true
+                '''
+            }
+        }
+
+        stage('Run CURL Tests') {
+            steps {
+                sh '''
+                    ./src/curl --version
+                    cd ./tests/
+                    make
+                    ./runtests.pl -a HTTP 1-300
+                    
+                    mkdir -p ../artifacts/tests/log
+                    cp -r log/* ../artifacts/tests/log/ || true
+                '''
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                script {
+                    // Clean up missing file to avoid errors
+                    sh 'rm -f artifacts/.libs/libcurltool.la || true'
+
+                    // Archive only known existing files and disable fingerprinting for development builds
+                    archiveArtifacts artifacts: 'artifacts/.libs/libcurl*.so*, artifacts/tests/log/**', fingerprint: false
+                }
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Build or tests failed.'
+        }
+        success {
+            echo 'Build and tests completed successfully.'
+        }
+    }
+}
